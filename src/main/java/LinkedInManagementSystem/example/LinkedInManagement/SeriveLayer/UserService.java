@@ -45,7 +45,7 @@ public class UserService {
         String body = "Hi "+user.getUserName()+" !" +
                 "You have successfully registered. You can start expose your self through the world.";
 
-        mailMessage.setFrom("makasrinivasulu01@gmail.com"); // from which mail u want to send
+        mailMessage.setFrom("makasrinivasulu67@gmail.com"); // from which mail u want to send
         mailMessage.setTo(user.getEmail());//to which one send to mail
         mailMessage.setSubject("Welcome To LinkedInManagement System !!");//subject
         mailMessage.setText(body);//message in the box

@@ -42,6 +42,7 @@ public class Company {
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
+
     private String hiringRoles;
 
 

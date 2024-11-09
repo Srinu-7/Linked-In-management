@@ -65,7 +65,7 @@ public class JobService {
                 String body = "Hi " + follower.getUserName() + " !" + user.getUserName() + " add a job " +
                         "you got this email because of you followed him";
 
-                mailMessage.setFrom("makasrinivasulu01@gmail.com"); // from which mail u want to send
+                mailMessage.setFrom("makasrinivasulu67@gmail.com"); // from which mail u want to send
                 mailMessage.setTo(follower.getEmail());//to which one send to mail
                 mailMessage.setSubject("New Job Added !!");//subject
                 mailMessage.setText(body);//message in the box

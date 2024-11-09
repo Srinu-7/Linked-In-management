@@ -30,7 +30,7 @@ public class MessagesController {
 
     // find all send messages by the user
     @GetMapping("/find-all-sendMessages")
-    public ResponseEntity allMessagesSendByUser(@RequestParam("userId")  Integer userId) throws Exception
+    public ResponseEntity allMessagesSendByUser(@RequestParam("userId")  int userId) throws Exception
     {
 
         try {

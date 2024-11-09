@@ -41,4 +41,14 @@ public class CompanyController {
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+    @GetMapping("/topFollowed")
+    public ResponseEntity topFollowedCompany(){
+        try{
+            Company company = companyService.topFollowed();
+            return new ResponseEntity(company,HttpStatus.ACCEPTED);
+        }
+        catch(Exception e){
+            return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
 }

@@ -41,7 +41,7 @@ public class UserController {
 
     // all posts posted by user
     @GetMapping("/allPosts")
-    public ResponseEntity allPost(Integer userId) throws Exception{
+    public ResponseEntity allPost(@RequestParam("userId") int userId) throws Exception{
 
         try{
             List<Post> postList = userService.allPosts(userId);
@@ -65,7 +65,7 @@ public class UserController {
     // find all the followers of user
     @GetMapping("/allFollowers/{userId}")
 
-    public ResponseEntity allFollowers(@PathVariable ("userId") Integer userId){
+    public ResponseEntity allFollowers(@PathVariable ("userId") int userId){
 
         try {
             List<User> userList = userService.allUsers(userId);

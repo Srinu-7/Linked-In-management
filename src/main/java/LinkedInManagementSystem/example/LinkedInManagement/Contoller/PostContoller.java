@@ -66,7 +66,7 @@ public ResponseEntity allPostsByCompany() throws Exception{
         }
     }
     @DeleteMapping("/delete-post")
-    public ResponseEntity deletePost(Integer postId) throws Exception{
+    public ResponseEntity deletePost(@RequestParam("postId") int postId) throws Exception{
 
         try {
             return new ResponseEntity(postService.deletePost(postId) , HttpStatus.OK);
@@ -100,7 +100,8 @@ public ResponseEntity allPostsByCompany() throws Exception{
     }
 
     // get all the users who are liked my all posts
-    @GetMapping("/allUsersWhoLikedMyPosts")
+    @GetMapping("/" +
+            "")
     public ResponseEntity allUsersWhoLikedMyPosts(@RequestParam("userId") Integer userId) throws Exception{
         try {
             List<User> userList = postService.allUsersWhoLikedMyPosts(userId);

@@ -1,5 +1,6 @@
 package LinkedInManagementSystem.example.LinkedInManagement.SeriveLayer;
 
+import LinkedInManagementSystem.example.LinkedInManagement.Exceptions.NoFollower;
 import LinkedInManagementSystem.example.LinkedInManagement.Exceptions.UserIdIsInvalid;
 import LinkedInManagementSystem.example.LinkedInManagement.Models.Follow;
 import LinkedInManagementSystem.example.LinkedInManagement.Models.User;
@@ -8,6 +9,7 @@ import LinkedInManagementSystem.example.LinkedInManagement.Repository.UserReposi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -48,4 +50,12 @@ public class FollowService {
         follow = followRepository.save(follow);
     }
 
+
+    public List<Integer> FriendsToFollowSpecificPerson(int id) throws Exception{
+        List<Integer> friendsList = followRepository.followers(id);
+
+        if(friendsList.size() == 0) throw new NoFollower("no followers found");
+
+        return friendsList;
+    }
 }

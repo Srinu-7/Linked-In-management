@@ -3,6 +3,7 @@ package LinkedInManagementSystem.example.LinkedInManagement.SeriveLayer;
 import LinkedInManagementSystem.example.LinkedInManagement.Enums.Status;
 import LinkedInManagementSystem.example.LinkedInManagement.Exceptions.CompanyAlreadyExist;
 import LinkedInManagementSystem.example.LinkedInManagement.Exceptions.NoCompaniesAreHiringNow;
+import LinkedInManagementSystem.example.LinkedInManagement.Exceptions.NoCompanyExist;
 import LinkedInManagementSystem.example.LinkedInManagement.Models.Company;
 import LinkedInManagementSystem.example.LinkedInManagement.Repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,18 +32,20 @@ public class CompanyService {
 
     public List<Company> hiringCompanies() throws Exception{
 
-        List<Company> companyList = companyRepository.findAll();
+        List<Company> companyList = companyRepository.hiringCompaniesList();
 
-        List<Company> list = new ArrayList<>();
-       Status status = Status.HIRING;
-        for(Company company : companyList) {
-
-            if(company.getStatus().equals(status)) list.add(company);
-        }
-
-        if(list.isEmpty()){
+        if(companyList.isEmpty()){
             throw new NoCompaniesAreHiringNow("no companies is hiring now");
         }
-        return list;
+        return companyList;
+    }
+
+    public Company topFollowed() throws Exception{
+
+        Company company = companyRepository.topFollowed();
+
+        if(company == null) throw new NoCompanyExist("no company is there");
+
+        return company;
     }
 }
