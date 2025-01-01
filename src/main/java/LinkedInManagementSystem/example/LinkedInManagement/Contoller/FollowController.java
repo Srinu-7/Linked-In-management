@@ -37,4 +37,16 @@ public class FollowController {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/famous")
+
+    private ResponseEntity mostFamousPerson(){
+
+        try{
+            return new ResponseEntity(followService.famousPerson(),HttpStatus.ACCEPTED);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
 }

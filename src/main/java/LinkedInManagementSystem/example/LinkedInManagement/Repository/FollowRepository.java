@@ -12,4 +12,7 @@ import java.util.List;
 public interface FollowRepository extends JpaRepository<Follow , Integer> {
     @Query(value = " select  distinct following_person_id from follow where user_user_id = :id",nativeQuery = true)
     List<Integer> followers(int id);
+
+    @Query(value = " select user_user_id from follow group by user_user_id order by count(*) desc limit 1",nativeQuery = true)
+    int famous();
 }

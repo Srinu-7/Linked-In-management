@@ -7,6 +7,7 @@ import LinkedInManagementSystem.example.LinkedInManagement.Models.User;
 import LinkedInManagementSystem.example.LinkedInManagement.Repository.FollowRepository;
 import LinkedInManagementSystem.example.LinkedInManagement.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -57,5 +58,12 @@ public class FollowService {
         if(friendsList.size() == 0) throw new NoFollower("no followers found");
 
         return friendsList;
+    }
+
+    public int famousPerson() {
+
+        int res = followRepository.famous();
+
+        return res;
     }
 }
